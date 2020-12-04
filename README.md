@@ -16,6 +16,10 @@ DIY fluorescence detector for the GMO Detective project
 [Aliexpress](https://fr.aliexpress.com/item/4000049679173.html?spm=a2g0o.productlist.0.0.6fd1f912MCE4d2&algo_pvid=a3873bf6-c53e-42d9-8363-89ecb1d975f8&algo_expid=a3873bf6-c53e-42d9-8363-89ecb1d975f8-4&btsid=0b0a182b16071189178941562e2389&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603)\_
 
 
-#3D Model 
+## 3D Model 
 
 ![Screengrab of 3d model](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/img/3D%20model.jpg)
+
+
+
+![3D model](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/3D%20Model/LampBoxV0.31-THT%20v1.stl)
