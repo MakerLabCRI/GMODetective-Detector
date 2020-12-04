@@ -17,4 +17,5 @@ DIY fluorescence detector for the GMO Detective project
 
 
 #3D Model 
-![Screengrab of 3d model](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/img/3D%20model.jpg?raw=true)
+
+![Screengrab of 3d model](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/img/3D%20model.jpg)
