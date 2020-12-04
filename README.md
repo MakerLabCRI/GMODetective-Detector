@@ -1,6 +1,6 @@
 # GMODetective-Detector
 
-DIY fluorescence detector for the GMO Detective project
+DIY fluorescence detector for the [GMO Detective project] (https://gmodetective.com/)
 
 ## BOM
 
