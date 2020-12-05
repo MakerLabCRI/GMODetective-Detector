@@ -10,7 +10,7 @@ DIY fluorescence detector for the [GMO Detective project](https://gmodetective.c
 
 8x 68 ohm resistor [mouser](https://www.mouser.fr/ProductDetail/Yageo/CFR-25JT-52-68R?qs=%2Fha2pyFaduip15hodXcAQzG82qC8UTcP%2FVcFQd8KsgKmaA7VFXCJAQ%3D%3D)
 
-1x 10Uf electrolytic capacitor [mouser](https://www.mouser.fr/ProductDetail/Panasonic/ECA-1JM100B?qs=%2Fha2pyFadugf96c9oovEvKSc4mhyX5s0jUH4ND99LTDADYv5TkhqzA%3D%3D)
+1x 10uF electrolytic capacitor [mouser](https://www.mouser.fr/ProductDetail/Panasonic/ECA-1JM100B?qs=%2Fha2pyFadugf96c9oovEvKSc4mhyX5s0jUH4ND99LTDADYv5TkhqzA%3D%3D)
 
 1x Fuse 500ma RXEF050 [mouser](https://www.mouser.fr/ProductDetail/Littelfuse/RXEF050?qs=k5V78Jg%2Feq7BserVMEB6DA%3D%3D)
 
