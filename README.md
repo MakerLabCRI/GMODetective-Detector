@@ -14,7 +14,7 @@ DIY fluorescence detector for the [GMO Detective project](https://gmodetective.c
 
 1x Fuse 500ma RXEF050 [mouser](https://www.mouser.fr/ProductDetail/Littelfuse/RXEF050?qs=k5V78Jg%2Feq7BserVMEB6DA%3D%3D)
 
-1x micro USB 2P [Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.68.312b6bc3MnUb4G&id=597273597165&ns=1&abbucket=19#detail)
+1x micro USB 2P with 90° pins [Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.68.312b6bc3MnUb4G&id=597273597165&ns=1&abbucket=19#detail)
 [Aliexpress](https://fr.aliexpress.com/item/4000049679173.html?spm=a2g0o.productlist.0.0.6fd1f912MCE4d2&algo_pvid=a3873bf6-c53e-42d9-8363-89ecb1d975f8&algo_expid=a3873bf6-c53e-42d9-8363-89ecb1d975f8-4&btsid=0b0a182b16071189178941562e2389&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603)
 [Aliexpress (90 ° version color B or D)](https://aliexpress.com/item/4001293555150.html)
 [Aliexpress (90° version color A or C)](https://fr.aliexpress.com/item/1005001515820458.html)
