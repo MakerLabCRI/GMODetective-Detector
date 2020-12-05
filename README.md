@@ -2,6 +2,8 @@
 
 DIY fluorescence detector for the [GMO Detective project](https://gmodetective.com/)
 
+![PCB view](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/img/LampBoxV0.31-THT-top.jpg)
+
 ## BOM
 
 8x C503B-BAN-CZ0A0451 [mouser](https://www.mouser.fr/ProductDetail/Cree-Inc/C503B-BAN-CZ0A0451?qs=%2Fha2pyFaduidizlAeORLOPChSupn8qVQ9Kn4bl13zJ7nUG9%252B2UeDbT0K%252B9FgAF1f)
