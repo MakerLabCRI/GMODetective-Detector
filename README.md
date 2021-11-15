@@ -27,6 +27,6 @@ DIY fluorescence detector for the [GMO Detective project](https://gmodetective.c
 
 ## 3d printable frame
 
-img/3d_printed_v03_UROS-version.jpg
+![3d model filter slit version](https://github.com/GenericLab/GMODetective-Detector/raw/main/img/3d_model_v04.jpg)
 
 ![3d printed UROS version](https://github.com/GenericLab/GMODetective-Detector/raw/main/img/3d_printed_v03_UROS-version.jpg)
