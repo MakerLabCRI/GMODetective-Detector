@@ -125,7 +125,7 @@ translate([ 0, equi_side+dbw/2-PCB_y+ext+8.5, PCB_z+ext/2 ]) cube([front, 3.8, 0
 //blue filter slit holder   
 difference(){   
 translate([ 0, equi_side+2, -0+12+ext/2 ]) cube([front, 6, filterSlit_thickness ]);
-   translate([ wall*3, wall, 0 ]) cube([PCB_x-wall*4, depth-wall, front_height-wall ]); 
+   translate([ wall*2, wall, 0 ]) cube([PCB_x-wall*2, depth-wall, front_height-wall ]); 
    } 
    
 }     
