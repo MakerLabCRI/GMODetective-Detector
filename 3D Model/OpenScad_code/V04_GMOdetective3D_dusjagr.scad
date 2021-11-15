@@ -25,7 +25,7 @@ ext=10;
 
 filterSlit_thickness=0.8; // for flexible filters to squeeze them in
 
-PCB_x=100+1.5; //this is the more important parameter, you change here and everything will scale accordingly
+PCB_x=100+2.5; //this is the more important parameter, you change here and everything will scale accordingly
 
 corr=0.2;// used for printing imperfections
 
@@ -88,7 +88,7 @@ difference(){
         cube([front, depth, front_height ]);
               
         //internal
-        translate([ wall*3, wall, 0 ]) cube([PCB_x-wall*4, depth-wall, front_height-wall ]);
+        translate([ wall*2, wall, 0 ]) cube([PCB_x-wall*2, depth-wall, front_height-wall ]);
         //window
         translate([ (front-window_x)/2, 0
         -1, front_height-window_h-4 ]) cube([window_x, depth-wall, window_h ]);
