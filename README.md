@@ -19,8 +19,14 @@ DIY fluorescence detector for the [GMO Detective project](https://gmodetective.c
 [Aliexpress (90 ° version color B or D)](https://aliexpress.com/item/4001293555150.html)
 [Aliexpress (90° version color A or C)](https://fr.aliexpress.com/item/1005001515820458.html)
 
-## 3D Model
+## 3D Model of PCB
 
-![Screengrab of 3d model](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/img/3D%20model.jpg)
+![Screengrab of 3d model](https://github.com/GenericLab/GMODetective-Detector/raw/main/img/3D%20model.jpg)
 
 ![3D model](https://github.com/MakerLabCRI/GMODetective-Detector/blob/main/3D%20Model/LampBoxV0.31-THT%20v1.stl)
+
+## 3d printable frame
+
+img/3d_printed_v03_UROS-version.jpg
+
+![3d printed UROS version](https://github.com/GenericLab/GMODetective-Detector/raw/main/img/3d_printed_v03_UROS-version.jpg)
