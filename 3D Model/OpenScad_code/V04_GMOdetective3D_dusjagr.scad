@@ -36,7 +36,7 @@ notch_y=4.5;
 wall=3;
 front=PCB_x+wall*2;
 equi_side=32;
-front_height=42+ext;
+front_height=47+ext;
 depth=38+ext;
 window_x=71.5;
 window_h=11.8+ext/2;
@@ -47,13 +47,16 @@ LED_h=10;
 cover=15;//to cover blue light coming from top part of tubes
 win_location_h=front_height-window_h-4;
     
-    
+/////////////////////////-----------rendering
+
+//first design. It works.
 //GMO3D_square_open();
 
 
+//collaborative design. Render it like this for better printing without support materials
+//color("DeepPink",0.75) rotate([ -90-45+10, 0, 0 ]) GMO3D();
 
-//color("DeepPink",0.75) rotate([ -90, 0, 0 ]) GMO3D();
-
+/////////////////////////-----------modules
 
 
 module UROS_logo(){
@@ -71,54 +74,62 @@ text( "reGOSH");
 }
 
 
-//translate([ wall, equi_side-PCB_y, PCB_z+ext ])  rotate([ -45, 0, 0 ]) PCB();  
-rotate([ -90+10, 0, 0 ]) GMO3D();
+//translate([ wall, wall*3-PCB_y/2, PCB_z+ext -2])   PCB();  
+//GMO3D();
 module GMO3D(){
-  rotate([ -45, 0, 0 ]) translate([ 0, -wall, 0]) difference(){
+  translate([ 0, -wall, 0]) difference(){
         // front plate
-     color("DeepPink",0.75)   cube([front, wall, front_height ]);
+     color("DeepPink")   cube([front, wall, front_height ]);
       
         // emboss logos
         rotate([ 90, 0, 0 ]) translate([ 0,0, -0.5]) UROS_logo();
-       rotate([ 90, 0, 0 ]) translate([ 10,0, -0.5]) rotate([0,0,90])reGOSH();
+       rotate([ 90, 0, 0 ]) translate([ 12,1, -0.5]) rotate([0,0,90])reGOSH();
         //window
         translate([ (front-window_x)/2, -1, front_height-window_h-4 ]) cube([window_x, depth-wall+1, window_h ]);
-      //orange filter slit
-      rotate([ 90, 0, 0 ]) translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front, depth/2, filterSlit_thickness ]);
-      rotate([ 90, 0, 0 ]) translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+2, depth/5, filterSlit_thickness ]);
-      }
-
-//orange filter slit holder
-rotate([ -45, 0, 0 ]) translate([ 0, -wall, 0]) difference(){     
-    rotate([ 90, 0, 0 ]) translate([0,equi_side+wall-window_h/2+10, -wall]) cube([front, depth/8, filterSlit_thickness]);    
-    translate([ (front-window_x)/2, 0, front_height-window_h-4 ]) cube([window_x, depth-wall, window_h ]);
-}
+//      //orange filter slit
+//     rotate([ 90, 0, 0 ])  translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front, depth/2, filterSlit_thickness ]);
+//      rotate([ 90, 0, 0 ]) translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+2, depth/5, filterSlit_thickness ]);      
+            
+      //orange filter slit 
+        translate([ 0,0,  front_height-window_h-4-equi_side]) rotate([ 90, 0, 0 ]) union(){translate([ 0,equi_side+wall-window_h/2+depth/2-depth/4+wall, -wall]) cube([front, depth/4-wall/2, filterSlit_thickness ]);
+      translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front, depth/4-wall/2, filterSlit_thickness ]);
+       translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+2, depth/5, filterSlit_thickness ]);}    
+     }
      
-
+////orange filter slit holder
+// translate([ 0, -wall, 0]) difference(){     
+//    rotate([ 90, 0, 0 ]) translate([0,equi_side+wall-window_h/2+10, -wall]) cube([front, depth/8, filterSlit_thickness]);    
+//    translate([ (front-window_x)/2, 0, front_height-window_h-4 ]) cube([window_x, depth-wall, window_h ]);
+//}
+ 
 difference(){
-    rotate([ -45, 0, 0 ]) difference(){
-       color("DeepPink",0.75) cube([front, depth, front_height ]);
+    difference(){
+       color("DeepPink",0.75) cube([front, depth-wall, front_height ]);
               
+         //blue filter slit
+      translate([ 0,-equi_side+wall-window_h/2+depth/2-depth/4, front_height-window_h-12 ]) union(){ translate([ 0,equi_side+wall-window_h/2+depth/2-depth/4+wall, -wall]) cube([front+3, depth/4-wall/2, filterSlit_thickness ]);
+      translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front+3, depth/4-wall/2, filterSlit_thickness ]);
+       translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+3, depth/5, filterSlit_thickness ]);}
+       
         //internal
        difference(){ translate([ wall*2, wall, 0 ]) cube([PCB_x-wall*2, depth-wall, front_height-wall ]);
-           translate([ -0.5, depth+dbw*2-wall, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
+           translate([ -0.5, depth+dbw*2-wall*2.5, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
     }
         //window
-        translate([ (front-window_x)/2, 0
-        -1, front_height-window_h-4 ]) cube([window_x, depth-wall*6, window_h ]);
+        translate([ (front-window_x)/2, -1, front_height-window_h-4 ]) cube([window_x, depth/3, window_h ]);
         //tubes
         translate([(front-window_x)/2-dbw/2,wall+dbw/2,front_height-wall]) neg_tubes();
         // cut bottom
-        rotate([ 15, 0, 0 ])  translate([ -0.5, 0, -front_height ]) cube([1+front+corr, front+corr, front_height ]);
+        rotate([ 12, 0, 0 ])  translate([ -0.5, 0, -front_height ]) cube([1+front+corr, front+corr, front_height ]);
          // cut behind
-        translate([ -0.5, depth+dbw*2, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
+        translate([ -0.5, depth+dbw*2-wall*2, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
       
     }
 //    //PCB slit
 //    translate([ wall, equi_side+dbw/2-PCB_y+ext, PCB_z+ext/2 ]) cube([PCB_x, PCB_y+5, PCB_z+corr ]); 
     
      //PCB slit oblique
-      translate([ wall, equi_side-PCB_y, PCB_z+ext/2 ]) rotate([ -45, 0, 0 ]) cube([PCB_x, PCB_y+50, PCB_z+corr ]); 
+      translate([ wall, wall, PCB_z+ext-2 ]) cube([PCB_x, PCB_y+50, PCB_z+corr ]); 
 //    //blue filter slit
 //   %  union(){ translate([ 0, 1+equi_side-PCB_y/2, 12+ext/2 ]) cube([front, depth/2, filterSlit_thickness ]);    
 //    translate([ -1, equi_side, filterSlit_thickness+12+ext/2 ])   cube([front+2, 10, filterSlit_thickness ]);   
@@ -132,15 +143,87 @@ difference(){
 //   } 
 
    
-////blue filter slit holder   
-//difference(){   
-//translate([ 0, equi_side+2, -0+12+ext/2 ]) cube([front, 6, filterSlit_thickness ]);
-//   translate([ wall*2, wall, 0 ]) cube([PCB_x-wall*2, depth-wall, front_height-wall ]); 
-//   } 
-   
   
 }     
 
+//translate([ wall, wall*3-PCB_y/2, PCB_z+ext -2])   PCB();  
+GMO3D_V2();
+module GMO3D_V2(){
+        //front
+  translate([ 0, -wall, 0]) difference(){
+        // front plate
+     color("DeepPink")   cube([front, wall, front_height ]);
+      
+        // emboss logos
+        rotate([ 90, 0, 0 ]) translate([ 0,0, -0.5]) UROS_logo();
+       rotate([ 90, 0, 0 ]) translate([ 12,1, -0.5]) rotate([0,0,90])reGOSH();
+        //window
+        translate([ (front-window_x)/2, -1, front_height-window_h-4 ]) cube([window_x, depth-wall+1, window_h ]);
+//      //orange filter slit
+//     rotate([ 90, 0, 0 ])  translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front, depth/2, filterSlit_thickness ]);
+//      rotate([ 90, 0, 0 ]) translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+2, depth/5, filterSlit_thickness ]);      
+            
+      //orange filter slit 
+        translate([ 0,0,  front_height-window_h-4-equi_side]) rotate([ 90, 0, 0 ]) union(){translate([ 0,equi_side+wall-window_h/2+depth/2-depth/4+wall, -wall]) cube([front, depth/4-wall/2, filterSlit_thickness ]);
+      translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front, depth/4-wall/2, filterSlit_thickness ]);
+       translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+2, depth/5, filterSlit_thickness ]);}    
+     }
+     
+////orange filter slit holder
+// translate([ 0, -wall, 0]) difference(){     
+//    rotate([ 90, 0, 0 ]) translate([0,equi_side+wall-window_h/2+10, -wall]) cube([front, depth/8, filterSlit_thickness]);    
+//    translate([ (front-window_x)/2, 0, front_height-window_h-4 ]) cube([window_x, depth-wall, window_h ]);
+//}
+ 
+difference(){
+        //main body
+    difference(){
+       color("DeepPink",0.75) cube([front, depth-wall, front_height ]);
+           
+        //blue filter slit
+      translate([ 0,-equi_side+wall-window_h/2+depth/2-depth/4, front_height-window_h-12 ]) union(){ translate([ 0,equi_side+wall-window_h/2+depth/2-depth/4+wall, -wall]) cube([front+3, depth/4-wall/2, filterSlit_thickness ]);
+      translate([ 0,equi_side+wall-window_h/2, -wall]) cube([front+3, depth/4-wall/2, filterSlit_thickness ]);
+       translate([-1,equi_side+wall-window_h/2+8, -wall+filterSlit_thickness]) cube([front+3, depth/5, filterSlit_thickness ]);}
+       
+        //internal
+       difference(){ translate([ wall*2, wall, 0 ]) cube([PCB_x-wall*2, depth-wall, front_height-wall ]);
+           translate([ -0.5, depth+dbw*2-wall*2.5, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
+    }
+        //window
+        translate([ (front-window_x)/2, -1, front_height-window_h-4 ]) cube([window_x, depth/3, window_h ]);
+        //tubes
+        translate([(front-window_x)/2-dbw/2,wall+dbw/2,front_height-wall]) neg_tubes();
+        // cut bottom
+        rotate([ 12, 0, 0 ])  translate([ -0.5, 0, -front_height ]) cube([1+front+corr, front+corr, front_height ]);
+         // cut behind
+        translate([ -0.5, depth+dbw*2-wall*2, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
+      
+    }
+//    //PCB slit
+//    translate([ wall, equi_side+dbw/2-PCB_y+ext, PCB_z+ext/2 ]) cube([PCB_x, PCB_y+5, PCB_z+corr ]); 
+    
+     //PCB slit oblique
+      translate([ wall, wall, PCB_z+ext-2 ]) cube([PCB_x, PCB_y+50, PCB_z+corr ]); 
+//    //blue filter slit
+//   %  union(){ translate([ 0, 1+equi_side-PCB_y/2, 12+ext/2 ]) cube([front, depth/2, filterSlit_thickness ]);    
+//    translate([ -1, equi_side, filterSlit_thickness+12+ext/2 ])   cube([front+2, 10, filterSlit_thickness ]);    
+//   } 
+    }
+   difference(){ translate([ 0,depth/2-wall, front_height/2]) color("yellow",0.75) cube([front, depth/2-wall, front_height/2 ]);
+       // cut behind
+        translate([ -0.5, depth+dbw*2-wall*2, 2]) rotate([ 35, 0, 0 ]) cube([1+front+corr, front+corr, front_height*2 ]);
+      
+   }
+
+////PCB click-in   
+//difference(){   
+//translate([ 0, equi_side+dbw/2-PCB_y+ext+8.5, PCB_z+ext/2 ]) cube([front, 3.8, 0.32]);
+//   translate([ wall*2, wall, 0 ]) cube([PCB_x-wall*2, depth-wall, front_height-wall ]); 
+//   } 
+
+   
+  
+}     
     
     
     module GMO3D_square_open(){
